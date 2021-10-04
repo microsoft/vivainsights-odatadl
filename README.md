@@ -59,7 +59,7 @@ To run the code, clone this repository or download it as a zipped file.
 Go into `dl_query.py`, and change the parameters in the upfront section.
 
 There are a number of parameters that you must set prior to running `dl_query.py`:
-1. `par_authority`: url for your tenant, e.g. 'https://login.microsoftonline.com/<your tenant>/'
+1. `par_authority`: url for your tenant, e.g. `https://login.microsoftonline.com/[your tenant]/`
 1. `par_client_cred`: secret used for generating the token
 1. `par_client_id`: client id
 1. `par_odata`: OData url used for downloading the query
