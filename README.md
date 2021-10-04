@@ -1,6 +1,8 @@
-# Viva Insights OData Query Download
+# Microsoft Viva Insights OData Query Download
 
-This repository provides sample python code to download Microsoft Viva Leader Insights (Workplace Analytics) flexible queries as `.csv` files using an OData link. The key use case is to enable analysts to automate the download of flexible queries without accessing the Web Experience. 
+This repository provides sample python code to **download Microsoft Viva Leader Insights (Workplace Analytics) flexible queries as `.csv` files using an OData link**. 
+
+The key use case is to enable analysts to automate the download of flexible queries without going through the Web Experience. 
 
 The code itself is primarily based on [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon). 
 
@@ -8,6 +10,7 @@ The code itself is primarily based on [ms-identity-python-daemon](https://github
 
 You will need:
 - python 3.x or after
+- Admin access to Workplace Analytics
 - Admin access to Azure Active Directory 
 
 ### Set up a python daemon
