@@ -3,3 +3,6 @@
 
 # User files
 param.py
+
+# Other project files
+*.pyc
