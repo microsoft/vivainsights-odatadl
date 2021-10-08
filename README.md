@@ -42,9 +42,9 @@ As a first step you'll need to:
      so record it as soon as it is visible from the Azure portal.
 1. In the list of pages for the app, select **API permissions**
    - Click the **Add a permission** button and then,
-   - Ensure that the **Microsoft APIs** tab is selected
-   - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
-   - In the **Application permissions** section, ensure that the right permissions are checked: **User.Read.All**
+   - Ensure that the **APIs my organization uses** tab is selected
+   - In the search bar, type in *Workplace Analytics*.
+   - Select *Application permissions*, then ensure that the *Analyst* box is checked. This will allow the app to access queries as an Analyst. 
    - Select the **Add permissions** button
 
 1. At this stage permissions are assigned correctly but the client app does not allow interaction.
@@ -52,6 +52,8 @@ As a first step you'll need to:
    Click the **Grant/revoke admin consent for {tenant}** button, and then select **Yes** when you are asked if you want to grant consent for the
    requested permissions for all account in the tenant.
    You need to be an Azure AD tenant admin to do this.
+   
+![image](https://user-images.githubusercontent.com/17925865/136525995-cc2a357e-8e73-4dac-aea6-c70fa44233a7.png)
 
 See [here](https://github.com/Azure-Samples/ms-identity-python-daemon/tree/master/1-Call-MsGraph-WithSecret) for the original documentation. 
 
