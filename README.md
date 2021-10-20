@@ -1,6 +1,6 @@
 # Microsoft Viva Insights OData Query Download
 
-This repository provides sample python code to **download Microsoft Viva Leader Insights (Workplace Analytics) flexible queries as `.csv` files using an OData link**. 
+This repository provides sample Python and R code to **download Microsoft Viva Leader Insights (Workplace Analytics) flexible queries as `.csv` files using an OData link**. 
 
 The key use case is to enable analysts to automate the download of flexible queries without going through the Web Experience. 
 
@@ -9,13 +9,36 @@ The code itself is primarily based on [ms-identity-python-daemon](https://github
 ## Pre-requisites
 
 You will need:
-- python 3.x or after
+- EITHER 
+  - python 3.x or after 
+  - R 3.6 or after
 - Admin access to Workplace Analytics
 - Admin access to Azure Active Directory 
 
-### Set up a python daemon
+### Python pre-requisites
 
-You will need to create a Python daemon console. Follow the steps below to create one:
+For Python users, you will need to install the following packages with `pip install`:
+- `sys`
+- `json`
+- `csv`
+- `logging`
+- `param`
+- `requests`
+- `msal`
+
+### R pre-requisites
+
+For R users, you will need to install the following packages with `install.packages()`:
+- `AzureAuth`
+- `httr`
+- `dplyr`
+- `purrr`
+- `readr`
+
+
+### Set up a daemon console
+
+You will need to create a daemon console. Follow the steps below to create one:
 
 #### Choose the Azure AD tenant where you want to create your applications
 
@@ -61,22 +84,25 @@ See [here](https://github.com/Azure-Samples/ms-identity-python-daemon/tree/maste
 
 To run the code, clone this repository or download it as a zipped file. 
 
-Go into `dl_query.py`, and change the parameters in the upfront section.
+Go into `dl_query.py` or `dl_query.R`, and change the parameters in the upfront section.
 
 There are a number of parameters that you must set prior to running `dl_query.py`:
-1. `par_authority`: url for your tenant, e.g. `https://login.microsoftonline.com/[your tenant]/`
+1. `par_authority`: url for your tenant, e.g. `https://login.microsoftonline.com/[your tenant]/`. For R users, you can omit the `https://login.microsoft.com/` prefix.
 1. `par_client_cred`: secret used for generating the token
 1. `par_client_id`: client id
 1. `par_odata`: OData url used for downloading the query
 1. `par_outfile`: string specifying the name of the output .csv file
 
-After you have changed the parameters and saved, in PowerShell, ensure your directory is changed to the repository root, and run: 
+Ensure that you have changed the parameters and saved the appropriate. file. 
 
+For Python users, in PowerShell, ensure your directory is changed to the repository root, run: 
 ```
 python dl_query.py
 ```
 
-This should then save a CSV file in the root directory.
+For R users, you can run `dl_query.R` directly with R or from within RStudio.
+
+This should then save a CSV file in the root directory with the file name specified with the `par_outfile` parameter.
 
 ## Contributing
 
