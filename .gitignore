@@ -7,3 +7,5 @@ param.py
 # Other project files
 *.pyc
 .Rproj.user
+resp_text.txt
+.Rhistory
