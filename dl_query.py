@@ -42,41 +42,41 @@ if "access_token" in result:
     
         print("Status code: ", r.status_code)
 
-    ## TOGGLE FOR DEBUGGING ONLY
-    # file = open("resp_text.txt", "w", encoding = "utf-8")
-    # file.write(r.text)
+        ## TOGGLE FOR DEBUGGING ONLY
+        # file = open("resp_text.txt", "w", encoding = "utf-8")
+        # file.write(r.text)
 
-    data = json.loads(r.text)
-    person_data = data['value']
-    
-    # Temporary file name based on prefix and extension parameters
-    tmp_filename = par_outfile_prefix + str(file_counter).zfill(4) + par_outfile_ext
-    data_file = open(tmp_filename, 'w', newline = '')
-    
-    data_file = open(par_outfile, 'w', newline = '')
-    csv_writer = csv.writer(data_file)
-    count = 0
-    
-    for p in person_data:
-        if count == 0:
-            # Writing headers of CSV file
-            header = p.keys()
-            csv_writer.writerow(header)
-            count += 1
-    
-        # Writing data of CSV file
-        csv_writer.writerow(p.values())
+        data = json.loads(r.text)
+        person_data = data['value']
+        
+        # Temporary file name based on prefix and extension parameters
+        tmp_filename = par_outfile_prefix + str(file_counter).zfill(4) + par_outfile_ext
+        data_file = open(tmp_filename, 'w', newline = '')
+        
+        data_file = open(par_outfile, 'w', newline = '')
+        csv_writer = csv.writer(data_file)
+        count = 0
+        
+        for p in person_data:
+            if count == 0:
+                # Writing headers of CSV file
+                header = p.keys()
+                csv_writer.writerow(header)
+                count += 1
+        
+            # Writing data of CSV file
+            csv_writer.writerow(p.values())
 
-    data_file.close()
+        data_file.close()
 
-    print("Query data has been saved to file.")
-    
-    if data['@odata.nextLink']:
-        print("More data exists")
-        par_odata=data['@odata.nextLink']
-        file_counter += 1
-    else:
-        par_odata = None
+        print("Query data has been saved to file.")
+        
+        if data['@odata.nextLink']:
+            print("More data exists")
+            par_odata=data['@odata.nextLink']
+            file_counter += 1
+        else:
+            par_odata = None
 
 else:
     print(result.get("error"))
