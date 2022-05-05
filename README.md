@@ -91,7 +91,9 @@ There are a number of parameters that you must set prior to running `dl_query.py
 1. `par_client_cred`: secret used for generating the token
 1. `par_client_id`: client id
 1. `par_odata`: OData url used for downloading the query
-1. `par_outfile`: string specifying the name of the output .csv file
+1. `par_outfile_prefix`: string specifying the name of the output file, **excluding** the file extension.  
+1. `par_outfile_ext`: string specifying the file extension of the output file. Keep this as `.csv` by default.  
+1. `par_outfile`: string specifying the name of the output `.csv` file. (only for older versions of this code repository. Changed in May 2022)
 
 Ensure that you have changed the parameters and saved the appropriate. file. 
 
